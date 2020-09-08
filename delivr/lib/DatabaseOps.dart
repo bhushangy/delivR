@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:delivr/Provider/ManageState.dart';
+import 'package:delivr/provider/provide_area.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ class _OrdersState extends State<Orders> {
     try {
       await databaseReference
           .collection("Areas")
-          .document(Provider.of<ManageArea>(context,listen: false).area) //widget.category.toUpperCase()
+          .document(Provider.of<ProvideArea>(context,listen: false).area) //widget.category.toUpperCase()
           .collection("Medicine")
           .document(
           "MALMEDAPP1") // by default it goes to bbmp document...but this can be changed

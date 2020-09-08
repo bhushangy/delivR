@@ -1,12 +1,12 @@
-import 'package:delivr/Complaints/Complaints.dart';
-import 'package:delivr/Constants/Constants.dart';
-import 'package:delivr/Orders/Orders.dart';
-import 'package:delivr/ScaleConfig/ScaleConfig.dart';
+import 'package:delivr/screens/complaints/complaints_page.dart';
+import 'package:delivr/constants/constants.dart';
+import 'package:delivr/screens/home/home_page.dart';
+import 'package:delivr/screens/orders/orders_page.dart';
+import 'package:delivr/util/scale_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'HomePage.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.error,
+              Icons.shopping_basket,
               size: SizeConfig.safeBlockHorizontal * 5.1,
             ),
             title: FittedBox(
@@ -73,7 +73,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.insert_chart,
+              Icons.error_outline,
               size: SizeConfig.safeBlockHorizontal * 5.1,
             ),
             title: FittedBox(
@@ -92,3 +92,5 @@ class _BottomNavBarState extends State<BottomNavBar> {
     );
   }
 }
+// does it auto save
+//yes it auto saves

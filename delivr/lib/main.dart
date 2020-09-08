@@ -1,14 +1,19 @@
-import 'package:delivr/Constants/Constants.dart';
-import 'package:delivr/HomePage/BottomNavBar.dart';
-import 'package:delivr/Provider/ManageState.dart';
+import 'package:delivr/provider/provide_area.dart';
+import 'package:delivr/provider/provide_items.dart';
+import 'package:delivr/util/scale_config.dart';
+import 'package:delivr/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import 'constants/constants.dart';
 
 void main() => runApp(
-      ChangeNotifierProvider(
-        create: (context) => ManageArea(),
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ProvideArea()),
+          ChangeNotifierProvider(create: (_) => ProvideItems()),
+        ],
         child: MyApp(),
       ),
     );

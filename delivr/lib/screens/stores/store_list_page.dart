@@ -1,13 +1,10 @@
-import 'dart:collection';
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:delivr/Constants/Constants.dart';
-import 'package:delivr/Provider/ManageState.dart';
-import 'package:delivr/ScaleConfig/ScaleConfig.dart';
-import 'package:delivr/Strores/StoreDetails.dart';
+import 'package:delivr/constants/constants.dart';
+import 'package:delivr/provider/provide_area.dart';
+import 'package:delivr/screens/stores/widgets/sliver_tab_bar.dart';
+import 'package:delivr/util/scale_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +29,7 @@ class _StoreListState extends State<StoreList> {
   Widget build(BuildContext context) {
     Stream<QuerySnapshot> streamPath = _firestore
         .collection('Areas/' +
-            Provider.of<ManageArea>(context, listen: false).area +
+            Provider.of<ProvideArea>(context, listen: false).area +
             '/' +
             widget.label)
         .snapshots();
@@ -61,6 +58,9 @@ class _StoreListState extends State<StoreList> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: SizeConfig.safeBlockVertical * 1,
+            ),
             StoreStream(
               label: widget.label,
             )
@@ -143,56 +143,56 @@ class StoreStream extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: _firestore
-          .collection('Areas/' +
-              Provider.of<ManageArea>(context, listen: false).area +
-              '/' +
-              label)
-          .snapshots(),
-      // ignore: missing_return
-      builder: (context, snapshot) {
-        // snapshot is a list of documents present in the collection
-        // ignore: unrelated_type_equality_checks
-        if (snapshot.connectionState == ConnectionState.waiting ||
-            // ignore: unrelated_type_equality_checks
-            getConnectivityStatus(context) == false) {
-          return Center(
-            child: Container(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-        if (snapshot.hasError) {
-          _showDialog("No internet!",
-              "Please check your internet connectivity.", context);
-        }
-        final stores = snapshot.data.documents;
-        if (stores.length == 0) {
-          return Container(
-            alignment: Alignment.center,
-            child: Text('No ' + label + ' stores in your area'),
-          );
-        } else {
-          for (var store in stores) {
-            final storeTile = StoreTiles(
-              store: store,
+    return Expanded(
+      child: StreamBuilder<QuerySnapshot>(
+        stream: _firestore
+            .collection('Areas/' +
+                Provider.of<ProvideArea>(context, listen: false).area +
+                '/' +
+                label)
+            .snapshots(),
+        // ignore: missing_return
+        builder: (context, snapshot) {
+          // snapshot is a list of documents present in the collection
+          // ignore: unrelated_type_equality_checks
+          if (snapshot.connectionState == ConnectionState.waiting ||
+              // ignore: unrelated_type_equality_checks
+              getConnectivityStatus(context) == false) {
+            return Center(
+              child: Container(
+                child: CircularProgressIndicator(),
+              ),
             );
-            storeTiles.add(storeTile);
-//            storeTiles.add(storeTile);
-//            storeTiles.add(storeTile);
-//            storeTiles.add(storeTile);
           }
-          return Expanded(
-            child: ListView(
+          if (snapshot.hasError) {
+            _showDialog("No internet!",
+                "Please check your internet connectivity.", context);
+          }
+          final stores = snapshot.data.documents;
+          if (stores.length == 0) {
+            return Container(
+              alignment: Alignment.center,
+              child: Text('No ' + label + ' stores in your area'),
+            );
+          } else {
+            for (var store in stores) {
+              final storeTile = StoreTiles(
+                store: store,
+              );
+              storeTiles.add(storeTile);
+//            storeTiles.add(storeTile);
+//            storeTiles.add(storeTile);
+//            storeTiles.add(storeTile);
+            }
+            return ListView(
               physics: ScrollPhysics(parent: BouncingScrollPhysics()),
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               children: storeTiles,
-            ),
-          );
-        }
-      },
+            );
+          }
+        },
+      ),
     );
   }
 }
@@ -220,8 +220,14 @@ class StoreTiles extends StatelessWidget {
             fontSize: SizeConfig.safeBlockHorizontal * 2.5),
       ),
       isThreeLine: true,
-      onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => StoreDetails(store: store))),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SliverTabBar(
+            store: store,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -253,9 +259,11 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-      return Center(
-        child: Container(child: Text('Oh Snap!!'),),
-      );
+    return Center(
+      child: Container(
+        child: Text('Oh Snap!!Something went wrong :( '),
+      ),
+    );
   }
 
   @override
@@ -269,32 +277,41 @@ class DataSearch extends SearchDelegate<String> {
           );
         }
 
-        final results = snapshot.data.documents.where((store) =>
-            store.data['name'].toString().toLowerCase().contains(query));
+        final results = snapshot.data.documents.where((store) => store
+            .data['name']
+            .toString()
+            .toLowerCase()
+            .startsWith(query.toLowerCase()));
 
         return ListView(
             children: results
                 .map<Widget>(
                   //thank god to have found stu macdonald @ stackoverflow :)
                   (store) => ListTile(
-                      leading: Icon(Icons.local_grocery_store),
-                      title: Text(
-                        store.data["name"],
-                        style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.bold,
-                            color: kTextColor,
-                            fontSize: SizeConfig.safeBlockHorizontal * 3),
+                    leading: Icon(Icons.local_grocery_store),
+                    title: Text(
+                      store.data["name"],
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.bold,
+                          color: kTextColor,
+                          fontSize: SizeConfig.safeBlockHorizontal * 3),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    subtitle: Text(
+                      store.data["address"],
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.normal,
+                          color: kTextColor,
+                          fontSize: SizeConfig.safeBlockHorizontal * 2.5),
+                    ),
+                    isThreeLine: true,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SliverTabBar(store: store),
                       ),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                      subtitle: Text(
-                        store.data["address"],
-                        style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.normal,
-                            color: kTextColor,
-                            fontSize: SizeConfig.safeBlockHorizontal * 2.5),
-                      ),
-                      isThreeLine: true,
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => StoreDetails(store: store)))),
+                    ),
+                  ),
                 )
                 .toList());
       },

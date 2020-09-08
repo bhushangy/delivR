@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:delivr/Constants/Constants.dart';
-import 'package:delivr/Provider/ManageState.dart';
-import 'package:delivr/ScaleConfig/ScaleConfig.dart';
+import 'package:delivr/constants/constants.dart';
+import 'package:delivr/util/scale_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 final databaseReference = Firestore.instance;
 
