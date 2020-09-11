@@ -1,6 +1,5 @@
 import 'package:delivr/provider/provide_area.dart';
 import 'package:delivr/provider/provide_items.dart';
-import 'package:delivr/util/scale_config.dart';
 import 'package:delivr/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
