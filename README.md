@@ -9,11 +9,12 @@ from the place he trusts in the shortest of time.
 
 ## Screenshots
 
-<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235226_delivr.png" width="300" height="300">
-![]( =300x300)|
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235233_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235242_delivr.png)|
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235350_delivr.png)|
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235401_delivr.png)|
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235409_delivr.png)|
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235417_delivr.png)
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235226_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235233_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235242_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235350_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235401_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235409_delivr.png" width="300" height="450">
+<img src = "https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235417_delivr.png" width="300" height="450">
+
 
