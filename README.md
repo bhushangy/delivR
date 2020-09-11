@@ -9,7 +9,7 @@ from the place he trusts in the shortest of time.
 
 ## Screenshots
 
-![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235226_delivr.png)|
+![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235226_delivr.png =300*300)|
 ![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235233_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235242_delivr.png)|
 ![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235350_delivr.png)|
 ![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235401_delivr.png)|
