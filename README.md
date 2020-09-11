@@ -9,5 +9,5 @@ from the place he trusts in the shortest of time.
 
 ## Screenshots
 
-![](https://github.com/bansuri0100/Sahaaya/blob/master/screenshots/1.jpg)|![](https://github.com/bansuri0100/Sahaaya/blob/master/screenshots/2.jpg)|![](https://github.com/bansuri0100/Sahaaya/blob/master/screenshots/3.jpg)|![](https://github.com/bansuri0100/Sahaaya/blob/master/screenshots/4.jpg)|
+![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235226_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235233_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235242_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235350_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235401_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235409_delivr.png)|![](https://github.com/bhushangy/delivR/blob/Initial_Setup/delivr/attachments/Screenshot_20200911-235417_delivr.png)
 
